@@ -18,7 +18,7 @@
         <div class="container">
             <nav class="navbar navbar-expand-lg ftco_navbar ftco-navbar-light" id="ftco-navbar">
                 <div class="container">
-                    <img class="navbar-brand" src="../images/logo_text.png"  width="136" height="56" alt="mozart questionnaire">
+                    <img class="navbar-brand" src="../images/logo_text.png"  width="146" height="56" alt="mozart questionnaire">
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
                         aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
                         <span class="fa fa-bars"></span> Menu
@@ -34,7 +34,7 @@
                                 <div class="dropdown-menu p-2" aria-labelledby="dropdown04">
                                     <div class="row">
                                         <div class="col">
-                                            <a class="dropdown-item" href="../pages/teacher-academic support.php">Academic Support</a>
+                                            <a class="dropdown-item" href="../pages/teacher-academic-support.php">Academic Support</a>
                                             <a class="dropdown-item" href="../pages/teacher-interview.php">Interview</a>
                                             <a class="dropdown-item" href="../pages/teacher-recruitement.php">Recruitement</a>
                                         

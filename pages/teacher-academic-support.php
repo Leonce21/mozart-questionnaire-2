@@ -6,18 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="../css/ionicons.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <?php include '../config/header.php' ?>
-
-<form class="table-responsive" >
+    <h3 class="card-head text-center mb-5 text-white">What is academic support?</h3>
+<form class="table-responsive col-lg-10" role="form" method="post" action="../config/teacher_academic_support_config.php?action=add">
     <div class="mt-1">
-        <h3 class="card-head text-center mb-5">What is academic support?</h3>
+       
         <div mat-dialog-content class="ms-5">
             
             <ol class="list-group list-numbered">
@@ -274,7 +272,7 @@
                 <div class="col-lg-10 m-1">
                     <li for="" class="form-label list-item">Salary expectations and working conditions. </li>
                     <div class="form-floating">
-                        <textarea class="form-control" placeholder="Leave a comment here" formControlName="salaryexpectation"></textarea>
+                        <textarea class="form-control" placeholder="Leave a comment here" name="salaryexpectation"></textarea>
                         <label for="floatingTextarea">comment here...</label>
                     </div>
                 </div>
@@ -283,8 +281,8 @@
         </div>
         <!-- buttons  -->
         <div class="p-4 ms-5">
-            <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-            <button color="primary" type="submit" class="btn btn-primary ms-2" [disabled]="!formData.valid">Submit</button>
+            <button type="button" class="btn btn-secondary">Cancel</button>
+            <button color="primary" type="submit" class="btn btn-primary ms-2">Submit</button>
         </div>
     </div>
 </form>

@@ -6,17 +6,16 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <?php include '../config/header.php' ?>
-   
-<form (ngSubmit)="submit()" [formGroup]="formData" class="table-responsive col-lg-14 mt-1">
+    <h3 class="card-head text-center text-white">Teacher Recruitement</h3>
+<form class="table-responsive col-lg-10 mt-1" role="form" method="post" action="../config/teacher-recruitement-config.php?action=add">
   
-    <h3 class="card-head text-center">Teacher Recruitement</h3>
+   
 
     <div mat-dialog-content class="ms-5 content">
           <!--   page 1 start -->
@@ -37,44 +36,44 @@
 
               <div class="col-md-5 form-group">
                 <label for="region" class="form-label">Nationality</label>
-                <input type="text" class="form-control" formControlName="nationality">
+                <input type="text" class="form-control" name="nationality">
               </div>
 
               <div class="col-md-5">
                 <label for="inputCity" class="form-label">Date of Birth</label>
-                <input type="date" class="form-control" formControlName="date_of_birth">
+                <input type="date" class="form-control" name="date_of_birth">
               </div>
 
               <div class="col-md-5">
                 <label for="inputZip" class="form-label">District</label>
-                <input type="text" class="form-control" formControlName="District" 
-                        name="District">
+                <input type="text" class="form-control" name="District" 
+                       >
         
               </div>
 
               <div class="col-md-5">
                 <label for="inputCity" class="form-label">Issued on </label>
-                <input type="date" class="form-control" formControlName="Date_Issued">
+                <input type="date" class="form-control" name="Date_Issued">
               </div>
 
               <div class="col-md-5">
                 <label for="inputCity" class="form-label">Landline Phone/Fixed Phone:</label>
-                <input type="number" class="form-control" formControlName="FixPhone">
+                <input type="number" class="form-control" name="FixPhone">
               </div>
 
               <div class="col-md-5">
                 <label for="inputZip" class="form-label">Mobile Phone:</label>
-                <input type="number" class="form-control" formControlName="MobilePhone">
+                <input type="number" class="form-control" name="MobilePhone">
               </div>
 
               <div class="col-md-5">
                 <label for="inputAddress" class="form-label">Email:</label>
-                <input type="email" class="form-control" formControlName="Email"  required>           
+                <input type="email" class="form-control" name="Email"  required>           
               </div>
 
               <div class="col-md-5">
                 <label for="inputAddress2" class="form-label">P.O Box:</label>
-                <input type="text" class="form-control" formControlName="PObox">
+                <input type="text" class="form-control" name="PObox">
               </div>
             </div>
 
@@ -128,22 +127,22 @@
             <li for="" class="form-label mt-5">Your Studies</li>
             <div class="col-md-5 form-group">
               <label for="degree" class="form-label">Highest Degree obtained</label>
-              <input type="text" class="form-control" formControlName="degreeobtained" placeholder="Ex: HND, Masters,...">
+              <input type="text" class="form-control" name="degreeobtained" placeholder="Ex: HND, Masters,...">
             </div>
   
             <div class="col-md-5">
               <label for="year" class="form-label">Year</label>
-              <input type="date" class="form-control" formControlName="year_of_degree">
+              <input type="date" class="form-control" name="year_of_degree">
             </div>
 
             <div class="col-md-5">
               <label for="degree" class="form-label">Speciality</label>
-              <input type="text" class="form-control" formControlName="Speciality" placeholder="Ex: Engineering, Accountancy,...">
+              <input type="text" class="form-control" name="Speciality" placeholder="Ex: Engineering, Accountancy,...">
             </div>
 
             <div class="col-md-5">
               <label for="degree" class="form-label">University/School</label>
-              <input type="text" class="form-control" formControlName="institution" placeholder="Ex: UY1, ENSPY,...">
+              <input type="text" class="form-control" name="institution" placeholder="Ex: UY1, ENSPY,...">
             </div>
 
           </div>
@@ -190,7 +189,7 @@
           <div class="">
             <li for="" class="form-label">What are your educational or associative experiences? </li>
             <div class="col-md-10">
-              <input type="text" class="form-control" formControlName="experience" placeholder="">
+              <input type="text" class="form-control" name="experience" placeholder="">
             </div>
           </div>
 
@@ -198,20 +197,20 @@
           <div class="">
             <li for="" class="form-label">What are your main motivations for teaching? </li>
             <div class="col-md-10">
-              <input type="text" class="form-control" formControlName="teachingmotivation" placeholder="">
+              <input type="text" class="form-control" name="teachingmotivation" placeholder="">
             </div>
           </div>
 
           <div class="">
             <li for="" class="form-label list-item">Have you ever use the internet(For school purpose)</li>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="InternetUsage" value="Yes" formControlName="InternetUsage" id="flexRadioDefaultP2">
+              <input class="form-check-input" type="radio" name="InternetUsage" value="Yes"  id="flexRadioDefaultP2">
               <label class="form-check-label" for="flexRadioDefaultP2">
                   Yes
               </label>
             </div>
             <div class="form-check form-check-inline">
-              <input class="form-check-input" type="radio" name="InternetUsage" value="No" formControlName="InternetUsage" id="flexRadioDefaultP3">
+              <input class="form-check-input" type="radio" name="InternetUsage" value="No"  id="flexRadioDefaultP3">
               <label class="form-check-label" for="flexRadioDefaultP3">
                   No
               </label>
@@ -220,7 +219,7 @@
             
           <div class="col-md-5">
             <li for="inputAddress2" class="form-label">Frequency of use (hours)? Per week</li>
-            <input type="text" class="form-control" formControlName="InternetUsage_duartion" placeholder="Ex: 10 hours">
+            <input type="text" class="form-control" name="InternetUsage_duartion" placeholder="Ex: 10 hours">
           </div>
 
           <!-- Question 10 -->
@@ -276,12 +275,12 @@
 
           <div class="col-md-5">
             <li for="inputAddress2" class="form-label">How many hours of lessons would you like to give each week?</li>
-            <input type="number" class="form-control" formControlName="hoursOfLesson" placeholder="Ex: 10 hours">
+            <input type="number" class="form-control" name="hoursOfLesson" placeholder="Ex: 10 hours">
           </div> 
           
           <div class="col-md-5">
             <li for="inputAddress2" class="form-label">What are your geographic preferences (neighborhoods) for teaching? </li>
-            <input type="text" class="form-control" formControlName="geographicPreferences" placeholder="Ex: Mimboman, Essos, Omnisport">
+            <input type="text" class="form-control" name="geographicPreferences" placeholder="Ex: Mimboman, Essos, Omnisport">
           </div> 
           
           <!--  Question 7  -->
@@ -514,7 +513,7 @@
       <!-- End of page 1  -->
     </div>
     <div class="action ms-5">
-      <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
+      <button type="button" class="btn btn-secondary" >Cancel</button>
       <button color="primary" type="submit" class="btn btn-primary ms-2">Submit</button>
     </div>
 </form>

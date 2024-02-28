@@ -6,25 +6,25 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <link rel="stylesheet" href="../css/ionicons.min.css">
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <title>Document</title>
 </head>
 
 <body>
     <?php include '../config/header.php' ?>
-    <form class="table-responsive col-lg-12 mt-1" method="post">
 
-        <h3 class="card-head text-center p-5">Information data (Students/Families)</h3>
+    <h3 class="card-head text-center p-5 text-white">Information data (Students/Families)</h3>
 
-        <div mat-dialog-content class="ms-5">
+    <form class="table-responsive col-lg-10 mt-1" role="form" method="post" action="../config/parent_config.php?action=add">
+
+        <div mat-dialog-content class="ms-5 form-group">
             <!--   page 1 start -->
             <div>
 
                 <ol class="list-group list-numbered card-body">
                     <!--  Question 1  -->
-                    <div>
+                    <div >
                         <li for="" class="form-label list-item">You are :</li>
                         <div class="form-check form-check-inline">
                             <label class="form-check-label" for="flexRadioDefault1">
@@ -531,22 +531,22 @@
 
                         <div class="col-md-5">
                             <label for="inputCity" class="form-label">Landline Phone:</label>
-                            <input type="number" class="form-control" formControlName="adultFixPhone">
+                            <input type="number" class="form-control" name="adultFixPhone">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputZip" class="form-label">Mobile Phone:</label>
-                            <input type="number" class="form-control" formControlName="adultMobilePhone">
+                            <input type="number" class="form-control" name="adultMobilePhone">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputAddress" class="form-label">Email:</label>
-                            <input type="email" class="form-control" formControlName="adultEmail">
+                            <input type="email" class="form-control" name="adultEmail">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputAddress2" class="form-label">P.O Box:</label>
-                            <input type="text" class="form-control" formControlName="adultPObox">
+                            <input type="text" class="form-control" name="adultPObox">
                         </div>
                     </div>
 
@@ -555,7 +555,7 @@
                     <div class="row g-3">
                         <div class="col-md-11">
                             <label for="inputEmail4" class="form-label">Mr,Mrs,Miss:</label>
-                            <input type="text" class="form-control" formControlName="studentName">
+                            <input type="text" class="form-control" name="studentName">
                         </div>
 
                         <div class="col-md-5">
@@ -577,27 +577,27 @@
 
                         <div class="col-md-5">
                             <label for="inputZip" class="form-label">Quater</label>
-                            <input type="text" class="form-control" formControlName="studentLocation">
+                            <input type="text" class="form-control" name="studentLocation">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputCity" class="form-label">Landline Phone:</label>
-                            <input type="number" class="form-control" formControlName="studentFixPhone">
+                            <input type="number" class="form-control" name="studentFixPhone">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputZip" class="form-label">Mobile Phone:</label>
-                            <input type="number" class="form-control" formControlName="studentMobilePhone">
+                            <input type="number" class="form-control" name="studentMobilePhone">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputAddress" class="form-label">Email:</label>
-                            <input type="email" class="form-control" formControlName="studentEmail">
+                            <input type="email" class="form-control" name="studentEmail">
                         </div>
 
                         <div class="col-md-5">
                             <label for="inputAddress2" class="form-label">P.O Box:</label>
-                            <input type="text" class="form-control" formControlName="studentPOBox">
+                            <input type="text" class="form-control" name="studentPOBox">
                         </div>
 
                         <div class="">
@@ -605,7 +605,7 @@
                             </li>
                             <div class="form-check form-check-inline">
                                 <input class="form-check-input" type="radio" name="InternetUsage" value="Yes"
-                                    formControlName="InternetUsage" id="flexRadioDefaultP2">
+                                    id="flexRadioDefaultP2">
                                 <label class="form-check-label" for="flexRadioDefaultP2">
                                     Yes
                                 </label>
@@ -622,7 +622,7 @@
 
                         <div class="col-md-5">
                             <label for="inputAddress2" class="form-label">Frequency of use (hours)? Per week</label>
-                            <input type="text" class="form-control" formControlName="InternetUsage_duartion"
+                            <input type="number" class="form-control" name="InternetUsage_duartion"
                                 placeholder="Ex: 10 hours">
                         </div>
                     </div>
@@ -686,8 +686,7 @@
         </div>
         <div class="action ms-5">
             <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-            <button color="primary" type="submit" class="btn btn-primary ms-2"
-                [disabled]="!formData.valid">Submit</button>
+            <button color="primary" type="submit" class="btn btn-primary ms-2">Submit</button>
         </div>
     </form>
 
