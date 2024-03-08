@@ -1,3 +1,109 @@
+<?php
+session_start();
+// include('../config/connection.php');
+
+try {
+    $pdo = new PDO("mysql:host=localhost;dbname=mozartcoursquestionnaire", "root", "");
+    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+    die("Connection failed: " . $e->getMessage());
+}
+
+if (isset($_POST['save_btn'])) {
+    // Collect values from POST
+           
+    $Q1 = $_POST['Q1'];
+    $Q2 = $_POST['Q2'];
+    $Q3 = $_POST['Q3'];
+    $Q4 = $_POST['Q4'];
+    $Q5 = $_POST['Q5'];
+    $Q6 = $_POST['Q6'];
+    $Q7_Mon = $_POST['Q7_Mon'];
+    $Q7_Tues = $_POST['Q7_Tues'];
+    $Q7_Wed = $_POST['Q7_Wed'];
+    $Q7_Thur = $_POST['Q7_Thur'];
+    $Q7_Fri = $_POST['Q7_Fri'];
+    $Q7_Sat = $_POST['Q7_Sat'];
+    $Q7_Sun = $_POST['Q7_Sun'];
+    $adultName = $_POST['adultName'];
+    $adultRegion = $_POST['adultRegion'];
+    $adultLocation = $_POST['adultLocation'];
+    $adultFixPhone = $_POST['adultFixPhone'];
+    $adultMobilePhone = $_POST['adultMobilePhone'];
+    $adultEmail = $_POST['adultEmail'];
+    $adultPObox = $_POST['adultPObox'];
+    $studentName = $_POST['studentName'];
+    $studentRegion = $_POST['studentRegion'];
+    $studentLocation = $_POST['studentLocation'];
+    $studentFixPhone = $_POST['studentFixPhone'];
+    $studentMobilePhone = $_POST['studentMobilePhone'];
+    $studentEmail = $_POST['studentEmail'];
+    $studentPOBox = $_POST['studentPOBox'];
+    $InternetUsage = $_POST['InternetUsage'];
+    $InternetUsage_duartion = $_POST['studentFixPhone'];
+    $mozartCours_Promotion = $_POST['mozartCours_Promotion'];
+
+    // Prepare SQL statement
+    $stmt = $pdo->prepare("INSERT INTO `informationform` (`Q1`, `Q2`, `Q3`, `Q4`, `Q5`, `Q6`, `Q7_Mon`, `Q7_Tues`, `Q7_Wed`, `Q7_Thur`, `Q7_Fri`, `Q7_Sat`, `Q7_Sun`, `adultName`, `adultRegion`, `adultLocation`, 
+    `adultFixPhone`, `adultMobilePhone`, `adultEmail`, `adultPObox`, `studentName`, `studentRegion`, 
+    `studentLocation`, `studentFixPhone`, `studentMobilePhone`, `studentEmail`, `studentPOBox`, `InternetUsage`, 
+    `InternetUsage_duartion`, `mozartCours_Promotion`) 
+                           VALUES (:Q1, :Q2, :Q3, :Q4, :Q5, :Q6, :Q7_Mon, :Q7_Tues, :Q7_Wed, :Q7_Thur, :Q7_Fri, :Q7_Sat, :Q7_Sun, :adultName, :adultRegion, :adultLocation, 
+        :adultFixPhone, :adultMobilePhone, :adultEmail, :adultPObox, :studentName, :studentRegion, 
+        :studentLocation, :studentFixPhone, :studentMobilePhone, :studentEmail, :studentPOBox, :InternetUsage, 
+        :InternetUsage_duartion, :mozartCours_Promotion)");
+
+    // Bind parameters
+    $stmt->bindParam(':Q1', $Q1);
+    $stmt->bindParam(':Q2', $Q2);
+    $stmt->bindParam(':Q3', $Q3);
+    $stmt->bindParam(':Q4', $Q4);
+    $stmt->bindParam(':Q5', $Q5);
+    $stmt->bindParam(':Q6', $Q6);
+    $stmt->bindParam(':Q7_Mon', $Q7_Mon);
+    $stmt->bindParam(':Q7_Tues', $Q7_Tues);
+    $stmt->bindParam(':Q7_Wed', $Q7_Wed);
+    $stmt->bindParam(':Q7_Thur', $Q7_Thur);
+    $stmt->bindParam(':Q7_Fri', $Q7_Fri);
+    $stmt->bindParam(':Q7_Sat', $Q7_Sat);
+    $stmt->bindParam(':Q7_Sun', $Q7_Sun);
+    $stmt->bindParam(':adultName', $adultName);
+    $stmt->bindParam(':adultRegion', $adultRegion);
+    $stmt->bindParam(':adultLocation', $adultLocation);
+    $stmt->bindParam(':adultFixPhone', $adultFixPhone);
+    $stmt->bindParam(':adultMobilePhone', $adultMobilePhone);
+    $stmt->bindParam(':adultEmail', $adultEmail);
+    $stmt->bindParam(':adultPObox', $adultPObox);
+    $stmt->bindParam(':studentName', $studentName);
+    $stmt->bindParam(':studentRegion', $studentRegion);
+    $stmt->bindParam(':studentLocation', $studentLocation);
+    $stmt->bindParam(':studentFixPhone', $studentFixPhone);
+    $stmt->bindParam(':studentMobilePhone', $studentMobilePhone);
+    $stmt->bindParam(':studentEmail', $studentEmail);
+    $stmt->bindParam(':studentPOBox', $studentPOBox);
+    $stmt->bindParam(':InternetUsage', $InternetUsage);
+    $stmt->bindParam(':InternetUsage_duartion', $InternetUsage_duartion);
+    $stmt->bindParam(':mozartCours_Promotion', $mozartCours_Promotion);
+
+    // Execute the statement
+    $result = $stmt->execute();
+
+    // Check and redirect
+    
+    if ($result) {
+        $_SESSION['status'] = "Data added successfully";
+        $_SESSION['status_message'] = "success";
+        header('location:../parent.php');
+    } else {
+        $_SESSION['status'] = "Data not added";
+        $_SESSION['status_message'] = "error";
+        header('location:add-parent.php');
+        exit();
+    }
+    
+}
+    
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,20 +111,58 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" type="text/css"
+        href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
+
+    <!-- Nucleo Icons -->
+    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+
+    <!-- Font Awesome Icons -->
+    <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
+
+    <!-- Material Icons -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round" rel="stylesheet">
+
+    <!-- CSS Files -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <link id="pagestyle" href="../assets/css/material-dashboard.css" rel="stylesheet" />
+
+    <!-- Nepcha Analytics (nepcha.com) -->
+    <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
+    <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
+
     <title>Document</title>
 </head>
 
-<body>
-    <?php include '../config/header.php' ?>
+<body class="g-sidenav-show  bg-gray-100">
 
-    <h3 class="card-head text-center p-5 text-white">Information data (Students/Families)</h3>
+    <?php include('../includes/sidebar.php');?>
 
-    <form class="table-responsive col-lg-10 mt-1" role="form" method="post" action="../config/parent_config.php?action=add">
+    <main class="main-content border-radius-lg ">
 
-        <div mat-dialog-content class="ms-5 form-group">
+        <?php include('../includes/navbar.php');?>
+
+        
+        <div class="container-fluid py-4">
+
+            <div class="row h-100 min-vh-100">
+                <div class="col-12">
+
+                    <div class="card">
+
+                        <div class="card-header">
+                            <h4>Add parent information
+                                <a href="../parent.php" class="btn btn-primary float-end">Back</a>
+                                
+                            </h4>
+                        </div>
+                        <hr class="horizontal dark mt-0 mb-2">
+                        <div class="card-body">
+                            <form class="col-lg-10" role="form" method="POST">
+                                <div class="mt-1">
+
+                                <div mat-dialog-content class="ms-5 form-group">
             <!--   page 1 start -->
             <div>
 
@@ -497,14 +641,14 @@
                         <div class="col-md-11">
                             <label for="inputEmail4" class="form-label">Mr,Mrs,Miss<span
                                     class="required-indicator">*</span></label>
-                            <input type="text" class="form-control" formControlName="adultName" name="adultName">
+                            <input type="text" class="form-control" name="adultName">
 
                         </div>
 
                         <div class="col-md-5 form-group">
                             <label for="region" class="form-label">Region<span
                                     class="required-indicator">*</span></label>
-                            <select class="form-select" formControlName="adultRegion" name="adultRegion">
+                            <select class="form-select" name="adultRegion">
 
                                 <option value="" selected disabled>Select a Region</option>
                                 <option value="adamaoua">Adamaoua</option>
@@ -684,13 +828,28 @@
             <!-- buttons  -->
 
         </div>
-        <div class="action ms-5">
-            <button type="button" class="btn btn-secondary" (click)="onCancel()">Cancel</button>
-            <button color="primary" type="submit" class="btn btn-primary ms-2">Submit</button>
-        </div>
-    </form>
+                                    <!-- buttons  -->
+                                    <div class="justify-content-center text-center">
+                                        <a class="btn btn-danger col-3 mx-auto" onclick="cancelRedirect()">Cancel</a>
+                                        <button name="save_btn" type="submit" class="btn btn-primary col-3 mx-auto">Submit</button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
 
-    <?php include '../config/footer.php' ?>
+
+                </div>
+            </div>
+
+            <?php include('../includes/footer.php');?>
+            <?php include('../includes/scripts.php');?>
+        </div>
+        <script>
+            function cancelRedirect() {
+              window.location.href = '../parent.php';
+            }
+        </script>
 </body>
 
 </html>

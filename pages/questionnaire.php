@@ -17,7 +17,7 @@
         action="../config/questionnaire-config.php?action=add">
 
         <div class="">
-            <div >
+            
                 <div mat-dialog-content class=" ms-5">
                     <ol class="list-group list-numbered card-body ms-4 row g-3">
                         <div class="col-md-10">
@@ -688,7 +688,7 @@
 
                 </div>
 
-            </div>
+            
 
             <!-- buttons  -->
             <div class="action" style="display: flex; justify-content: center;">

@@ -1,26 +1,4 @@
-/*!
 
-=========================================================
-* Material Dashboard 2 - v3.1.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/material-dashboard
-* Copyright 2023 Creative Tim (https://www.creative-tim.com)
-* Licensed under MIT (https://github.com/creativetimofficial/material-dashboard/blob/master/LICENSE.md)
-
-* Coded by www.creative-tim.com
-
-=========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
-/*!
-   * Bootstrap  v5.2.3 (https://getbootstrap.com/)
-   * Copyright 2011-2022 The Bootstrap Authors
-   * Copyright 2011-2022 Twitter, Inc.
-   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/main/LICENSE)
-   */
 :root {
   --bs-blue: #63B3ED;
   --bs-indigo: #596CFF;
@@ -10764,7 +10742,7 @@ fieldset:disabled .btn {
 }
 
 .bg-white {
-  background-color: #fff !important;
+  background-color: #ffff !important;
 }
 
 .bg-dark-blue {
@@ -22680,7 +22658,7 @@ label,
 }
 
 .form-control {
-  border: none;
+  padding: 5px;
 }
 
 .form-control.is-invalid {
@@ -22694,13 +22672,14 @@ label,
 }
 
 .form-control.is-valid {
-  border: 1px solid #d2d6da;
+  border: 2px solid #d2d6da;
   padding: 0.625rem 0.75rem;
   line-height: 1.3 !important;
 }
 
 .form-control.is-valid:focus {
   box-shadow: 0 0 0 2px rgba(102, 212, 50, 0.65);
+  
 }
 
 .form-control[disabled] {

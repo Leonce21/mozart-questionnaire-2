@@ -27,7 +27,7 @@ switch ($_GET['action'])
 
     if($query){
         $_SESSION['status'] = "Data inserted goodly";
-        header('location:')
+        header('location:');
     }
 
 }

@@ -10,11 +10,11 @@ session_start();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="./assets/img/mozart 2.png">
 
     <title>
 
-        Material Dashboard 2 by Creative Tim
+      Dashboard Forms
 
     </title>
 
@@ -46,11 +46,11 @@ session_start();
 </head>
 
 
-<body class="g-sidenav-show  bg-gray-100">
+<body class="g-sidenav-show bg-gray-100">
 
     <?php include('./includes/sidebar.php');?>
 
-    <main class="main-content border-radius-lg ">
+    <main class="main-content border-radius-lg">
         <!-- Navbar -->
 
         <?php include('./includes/navbar.php');?>
@@ -156,20 +156,18 @@ session_start();
                             //unset($_SESSION['status']);
                         }
                     ?>
-
+<!-- 
                     <div class="card mt-5">
                         <div class="card-header">
-                            <h4>Insert data into database with PHP
-                                <a href="insert.php" class="btn btn-primary float-end">Insert Data</a>
-                            </h4>
+                          
 
                            
                         </div>
 
                         <div class="card-body">
-                            <!-- <h4>Insert data into database with PHP</h4> -->
+                          
                         </div>
-                    </div>
+                    </div> -->
 
                    
                 </div>
@@ -207,7 +205,7 @@ session_start();
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js"></script>
+    <script src="./assets/js/material-dashboard.min.js"></script>
 </body>
 
 </html>

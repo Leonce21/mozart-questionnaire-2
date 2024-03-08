@@ -10,7 +10,7 @@ try {
 
 // Fetch data from the database
 try {
-    $stmt = $pdo->query("SELECT * FROM 	informationform");
+    $stmt = $pdo->query("SELECT * FROM 	academicsupport");
     $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
@@ -49,7 +49,7 @@ try {
 
     <!-- CSS Files -->
 
-    <link id="pagestyle" href="./assets/css/material-dashboard.min.css" rel="stylesheet" />
+    <link id="pagestyle" href="./assets/css/material-dashboard.css" rel="stylesheet" />
 
     <!-- Nepcha Analytics (nepcha.com) -->
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
@@ -59,7 +59,7 @@ try {
 </head>
 
 
-<body class="g-sidenav-show bg-gray-100">
+<body class="g-sidenav-show  bg-gray-100">
 
     <?php include('./includes/sidebar.php');?>
 
@@ -73,72 +73,63 @@ try {
         <div class="container-fluid">
             <div class="card shadow mb-4">
                 <div class="card-header py-3">
-                    <h5 class="m-3 font-weight-bold" style="color: #087733;">Parent Data Table
-                    <a href="./page/add-parent.php" class="btn btn-primary float-end">Add Data</a>
+                    <h5 class="m-3 font-weight-bold" style="color: #087733;">Academic Support Data Table
+                        <a href="./page/add-academic.php" class="btn btn-primary float-end">Add Data</a>
                     </h5>
-                    
-                   
                 </div>
                 <hr class="horizontal dark mt-0 mb-2">
                 <div class="card-body table-responsive">
-                    <div class="">
-                        <table class="table text-dark" cellspacing="0" width="100%" aria-describedby="all_patients_info">
-                            <thead>
-                                <tr class="text-center">
-                                    <th scope="col">ID</th>
-                                    <th>Name</th>
-                                    <th>Region</th>
-                                    <th>Quater</th>
-                                    <th>Mobile Phone</th>
-                                    <th>Email</th>
-                                    <th>P.O Box</th>
-                
-                                    <th>Action</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php foreach ($data as $row) : ?>
-                                <tr class="text-center">
-                                    <td>
-                                        <?= $row['id'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultName'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultRegion'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultLocation'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultMobilePhone'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultEmail'] ?>
-                                    </td>
-                                    <td>
-                                        <?= $row['adultPObox'] ?>
-                                    </td>
+                    <table class="table text-dark" cellspacing="0" width="100%" aria-describedby="all_patients_info">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">ID</th>
+                                <th>firstname</th>
+                                <th>Q1</th>
+                                <th>Q2</th>
+                                <th>Q3</th>
+                                <th>Q4</th>
+                                <th>Q5</th>
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($data as $row) : ?>
+                            <tr class="text-center">
+                                <td>
+                                    <?= $row['id'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['firstname'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Q1'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Q2'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Q3'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Q4'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Q5'] ?>
+                                </td>
 
-                                    <td>
-                                        <a href="./page/edit-parent.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                                                        
-                                        <a href="./page/edit-parent.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
-                                    </td>
-                                </tr>
-                                <?php endforeach; ?>
-                            </tbody>
-                        </table>
-                    </div>
+                                <td>
+                                    <a href="./page/edit-academic.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="./page/edit-academic.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
                 </div>
-                
-                
+              
             </div>
             <?php include('./includes/footer.php');?>
             <?php include('./includes/scripts.php');?>
-
-
         </div>
 
 
@@ -147,6 +138,7 @@ try {
 
 
     <!--   Core JS Files   -->
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>

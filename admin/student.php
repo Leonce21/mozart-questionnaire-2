@@ -25,11 +25,11 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="./assets/img/mozart 2.png">
 
     <title>
 
-        Material Dashboard 2 by Creative Tim
+      Dashboard Forms
 
     </title>
 
@@ -70,82 +70,65 @@ try {
 
         <!-- End Navbar -->
 
-        <div class="container-fluid py-4">
-            <div class="card-body table-responsive col-12">
-                <h2>Student Data Table</h2>
-                <table class="table table-bordered table-striped" role="grid" aria-describedby="all_patients_info">
-                    <thead>
-                        <tr class="text-center">
-                            <th scope="col">ID</th>
-                            <th>Name</th>
-                            <th>Date of birth</th>
-                            <th>sex</th>
-                            <th>Current Institution</th>
-                            <th>Current Institution Period</th>
-                            <th>Class attended</th>
-                            <th>Repeating</th>
-                            <th>Previous Institution</th>
-                            <th>Annual average</th>
-                            <th>Group collaboration</th>
-                            <th>Learning Approach</th>
-                            <th>Learning Motivation</th>
-                            <th>Action</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <?php foreach ($data as $row) : ?>
-                        <tr class="text-center">
-                            <td>
-                                <?= $row['id'] ?>
-                            </td>
-                            <td>
-                                <?= $row['Name'] ?>
-                            </td>
-                            <td>
-                                <?= $row['date_of_birth'] ?>
-                            </td>
-                            <td>
-                                <?= $row['sex'] ?>
-                            </td>
-                            <td>
-                                <?= $row['CurrentInstitution'] ?>
-                            </td>
-                            <td>
-                                <?= $row['CurrentInstitutionPeriod'] ?>
-                            </td>
-                            <td>
-                                <?= $row['Classattended'] ?>
-                            </td>
-                            <td>
-                                <?= $row['repeating'] ?>
-                            </td>
-                            <td>
-                                <?= $row['PreviousInstitution'] ?>
-                            </td>
-                            <td>
-                                <?= $row['Annualaverage'] ?>
-                            </td>
-                            <td>
-                                <?= $row['group_collaboration'] ?>
-                            </td>
-                            <td>
-                                <?= $row['learningApproach'] ?>
-                            </td>
-                            <td>
-                                <?= $row['learning_Motivation'] ?>
-                            </td>
-                            <td>
-                                <a href="./page/edit-student.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                <a href="delete.php?id=<?= $row['id'] ?>" class="btn btn-danger btn-sm"
-                                    onclick="return confirm('Are you sure you want to delete this record?')">Delete</a>
-                            </td>
-                        </tr>
-                        <?php endforeach; ?>
-                    </tbody>
-                </table>
+        <div class="container-fluid">
+            <div class="card shadow mb-4">
+                <div class="card-header py-1">
+                    <h5 class="m-3 font-weight-bold" style="color: #087733;">Student Data Table
+                        <a href="./page/add-student.php" class="btn btn-primary float-end">Add Data</a>
+
+                    </h5>
+                </div>
+                <hr class="horizontal dark mt-0 mb-2">
+                <div class="card-body table-responsive">
+                    <table class="table text-dark" cellspacing="0" width="100%" aria-describedby="all_student_info">
+                        <thead>
+                            <tr class="text-center">
+                                <th scope="col">ID</th>
+                                <th>Name</th>
+                                <th>Date of birth</th>
+                                <th>sex</th>
+                                <th>Current Institution</th>
+                                
+                                <th>Class attended</th>
+                                
+                                <th>Action</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php foreach ($data as $row) : ?>
+                            <tr class="text-center">
+                                <td>
+                                    <?= $row['id'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['Name'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['date_of_birth'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['sex'] ?>
+                                </td>
+                                <td>
+                                    <?= $row['CurrentInstitution'] ?>
+                                </td>
+                            
+                                <td>
+                                    <?= $row['Classattended'] ?>
+                                </td>
+                                <td>
+                                    <a href="./page/edit-student.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="./page/edit-student.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                </td>
+                            </tr>
+                            <?php endforeach; ?>
+                        </tbody>
+                    </table>
+                </div>
+                
             </div>
             <?php include('./includes/footer.php');?>
-
+            <?php include('./includes/scripts.php');?>
         </div>
 
 
@@ -155,10 +138,10 @@ try {
 
     <!--   Core JS Files   -->
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
-    <script src="../assets/js/core/popper.min.js"></script>
-    <script src="../assets/js/core/bootstrap.min.js"></script>
-    <script src="../assets/js/plugins/perfect-scrollbar.min.js"></script>
-    <script src="../assets/js/plugins/smooth-scrollbar.min.js"></script>
+    <script src="./assets/js/core/popper.min.js"></script>
+    <script src="./assets/js/core/bootstrap.min.js"></script>
+    <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
+    <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
 
 
     <script>
@@ -176,7 +159,7 @@ try {
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="../assets/js/material-dashboard.min.js"></script>
+    <script src="./assets/js/material-dashboard.min.js"></script>
 </body>
 
 </html>

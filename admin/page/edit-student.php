@@ -33,6 +33,25 @@ if (isset($_GET['id'])) {
     header('location:index.php');
     exit();
 }
+
+//delete
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $stmt = $pdo->prepare("DELETE FROM studentinterview wHERE id = :id");
+    $stmt->bindParam(':id', $id);
+    $result = $stmt->execute();
+
+    if($result)
+    {
+        $_SESSION['verify'] = "record deleted successfully";
+        $_SESSION['verify_message'] = "success";
+        header('location:../student.php');
+    }else{
+        $_SESSION['verify'] = "Error in deleting the record";
+        $_SESSION['verify_message'] = "error";
+        header('location:../student.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -43,11 +62,11 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/favicon.png">
+    <link rel="icon" type="image/png" href="../assets/img/mozart 2.png">
 
     <title>
 
-        Material Dashboard 2 by Creative Tim
+      Dashboard Forms
 
     </title>
 
@@ -56,8 +75,8 @@ if (isset($_GET['id'])) {
         href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900|Roboto+Slab:400,700" />
 
     <!-- Nucleo Icons -->
-    <link href="./assets/css/nucleo-icons.css" rel="stylesheet" />
-    <link href="./assets/css/nucleo-svg.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-icons.css" rel="stylesheet" />
+    <link href="../assets/css/nucleo-svg.css" rel="stylesheet" />
 
     <!-- Font Awesome Icons -->
     <script src="https://kit.fontawesome.com/42d5adcbca.js" crossorigin="anonymous"></script>
@@ -97,13 +116,13 @@ if (isset($_GET['id'])) {
 
                         <div class="card-header">
                             <h4>Edit data
-                                <a href="index.php" class="btn btn-primary float-end">Back</a>
+                                <a href="../student.php" class="btn btn-primary float-end">Back</a>
 
                             </h4>
                         </div>
-
+                        <hr class="horizontal dark mt-0 mb-2">
                         <div class="card-body">
-                            <form class=" col-lg-10" role="form" method="POST"
+                            <form class="" role="form" method="POST"
                                 action="update-student.php">
 
                                 <div mat-dialog-content class=" ms-5">
@@ -451,11 +470,10 @@ if (isset($_GET['id'])) {
                                     </ol>
                                 </div>
                                 <!-- buttons  -->
-                                <div class="p-4 ms-5">
-
-                                    <button name="edit_btn" type="submit"
-                                        class="btn btn-primary ms-2">Update</button>
-                                </div>
+                                <div class="justify-content-center text-center">
+                                        <a class="btn btn-danger col-3 mx-auto" onclick="cancelRedirect()">Cancel</a>
+                                        <button name="edit_btn" type="submit" class="btn btn-primary col-3 mx-auto">Update</button>
+                                    </div>
                             </form>
                         </div>
                     </div>
@@ -471,7 +489,11 @@ if (isset($_GET['id'])) {
 
     </main>
 
-
+    <script>
+            function cancelRedirect() {
+              window.location.href = '../student.php';
+            }
+    </script>
 
     <!--   Core JS Files   -->
     <script src="../assets/js/core/popper.min.js"></script>

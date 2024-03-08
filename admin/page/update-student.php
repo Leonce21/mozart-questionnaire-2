@@ -138,14 +138,14 @@ if (isset($_POST['edit_btn'])) {
 
     // Check and redirect for update
     if ($result) {
-        $_SESSION['status'] = "Data updated successfully";
-        $_SESSION['status_code'] = "success";
-        header('location:../index.php');
+        $_SESSION['verify'] = "Data updated successfully";
+        $_SESSION['verify_message'] = "success";
+        header('location:../student.php');
         exit();
     } else {
-        $_SESSION['status'] = "Data not updated successfully";
-        $_SESSION['status_code'] = "error";
-        header('location:edit.php?id=' . $id); // Redirect back to edit page with the ID
+        $_SESSION['verify'] = "Data not updated successfully";
+        $_SESSION['verify_message'] = "error";
+        header('location:edit-student.php?id=' . $id); // Redirect back to edit page with the ID
         exit();
     }
 } else {
