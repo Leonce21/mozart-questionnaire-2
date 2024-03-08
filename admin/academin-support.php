@@ -25,7 +25,7 @@ try {
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link rel="apple-touch-icon" sizes="76x76" href="./assets/img/apple-icon.png">
-    <link rel="icon" type="image/png" href="./assets/img/mozart 2.png">
+    <link rel="icon" type="image/png" href="../assets/img/mozart 2.png">
 
     <title>
 
@@ -119,7 +119,7 @@ try {
 
                                 <td>
                                     <a href="./page/edit-academic.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="./page/edit-academic.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="./page/delete/delete-academic.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>
@@ -138,7 +138,7 @@ try {
 
 
     <!--   Core JS Files   -->
-    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+    <script src="./assets/js/sweetalert.js"></script>
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
@@ -160,7 +160,7 @@ try {
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-dashboard.min.js"></script>
+    <script src="../assets/js/material-dashboard.min.js"></script>
 </body>
 
 </html>

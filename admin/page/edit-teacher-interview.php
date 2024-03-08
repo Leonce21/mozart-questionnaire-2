@@ -33,24 +33,7 @@ if (isset($_GET['id'])) {
     header('location:index.php');
     exit();
 }
-// delete fxn
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $stmt = $pdo->prepare("DELETE FROM teacherinterview wHERE id = :id");
-    $stmt->bindParam(':id', $id);
-    $result = $stmt->execute();
 
-    if($result)
-    {
-        $_SESSION['verify'] = "record deleted successfully";
-        $_SESSION['verify_message'] = "success";
-        header('location:../teacher-interview.php');
-    }else{
-        $_SESSION['verify'] = "Error in deleting the record";
-        $_SESSION['verify_message'] = "error";
-        header('location:../teacher-interview.php');
-    }
-}
 ?>
 
 <!DOCTYPE html>

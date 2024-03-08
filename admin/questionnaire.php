@@ -113,7 +113,7 @@ try {
                             
                                 <td>
                                     <a href="./page/edit-questionnaire.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="./page/edit-questionnaire.php?id=<?= $row['id'] ?>" name="delete" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="./page/delete/delete-questionnaire.php?id=<?= $row['id'] ?>" name="delete" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
 
                             </tr>

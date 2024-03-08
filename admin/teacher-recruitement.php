@@ -15,7 +15,24 @@ try {
 } catch (PDOException $e) {
     echo "Error: " . $e->getMessage();
 }
+// delete record
+if(isset($_GET['id'])){
+    $id = $_GET['id'];
+    $stmt = $pdo->prepare("DELETE FROM teacherrecruitement wHERE id = :id");
+    $stmt->bindParam(':id', $id);
+    $result = $stmt->execute();
 
+    if($result)
+    {
+        $_SESSION['verify'] = "record deleted successfully";
+        $_SESSION['verify_message'] = "success";
+        header('location:../teacher-recruitement.php');
+    }else{
+        $_SESSION['verify'] = "Error in deleting the record";
+        $_SESSION['verify_message'] = "error";
+        header('location:../teacher-recruitement.php');
+    }
+}
 ?>
 
 <!DOCTYPE html>
@@ -119,7 +136,7 @@ try {
                             
                                 <td>
                                     <a href="./page/edit-teacher-recruitement.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="./page/edit-teacher-recruitement.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="./delete/teacher-recruitement.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
                                 </td>
 
                             </tr>

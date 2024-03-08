@@ -118,7 +118,7 @@ try {
                                 </td>
                                 <td>
                                     <a href="./page/edit-student.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="./page/edit-student.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="./page/delete/delete-student.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             <?php endforeach; ?>

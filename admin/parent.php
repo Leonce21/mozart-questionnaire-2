@@ -1,4 +1,4 @@
-<?php
+.<?php
 session_start();
 
 try {
@@ -124,7 +124,7 @@ try {
                                     <td>
                                         <a href="./page/edit-parent.php?id=<?= $row['id'] ?>" class="btn btn-warning btn-sm">Edit</a>
                                                                         
-                                        <a href="./page/edit-parent.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
+                                        <a href="./page/delete/delete-parent.php?id=<?= $row['id'] ?>"class="btn btn-danger btn-sm">Delete</a>
                                     </td>
                                 </tr>
                                 <?php endforeach; ?>
@@ -149,6 +149,7 @@ try {
     <!--   Core JS Files   -->
     <script src="./assets/js/core/popper.min.js"></script>
     <script src="./assets/js/core/bootstrap.min.js"></script>
+    <script src="./assets/js/sweetalert.js"></script>
     <script src="./assets/js/plugins/perfect-scrollbar.min.js"></script>
     <script src="./assets/js/plugins/smooth-scrollbar.min.js"></script>
 
@@ -168,7 +169,7 @@ try {
 
 
     <!-- Control Center for Material Dashboard: parallax effects, scripts for the example pages etc -->
-    <script src="./assets/js/material-dashboard.min.js"></script>
+    <script src="../assets/js/material-dashboard.min.js"></script>
 </body>
 
 </html>

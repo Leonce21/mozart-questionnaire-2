@@ -33,24 +33,22 @@ if (isset($_GET['id'])) {
     header('location:index.php');
     exit();
 }
-// delete record
-if(isset($_GET['id'])){
-    $id = $_GET['id'];
-    $stmt = $pdo->prepare("DELETE FROM academicsupport wHERE id = :id");
-    $stmt->bindParam(':id', $id);
-    $result = $stmt->execute();
-
-    if($result)
+if (isset($_SESSION['verify']))
     {
-        $_SESSION['verify'] = "record deleted successfully";
-        $_SESSION['verify_message'] = "success";
-        header('location:../academin-support.php');
-    }else{
-        $_SESSION['verify'] = "Error in deleting the record";
-        $_SESSION['verify_message'] = "error";
-        header('location:../academin-support.php');
+        ?>
+       
+        <script>
+            swal({
+                title: "<?php echo $_SESSION['verify'];?>",
+                // text: "You clicked the button!",
+                icon: "<?php echo $_SESSION['verify_message'];?>",
+                button: "Ok",
+            });
+        </script>
+
+        <?php
+        unset($_SESSION['verify']); 
     }
-}
 ?>
 
 <!DOCTYPE html>
@@ -91,7 +89,7 @@ if(isset($_GET['id'])){
     <!-- Nepcha is a easy-to-use web analytics. No cookies and fully compliant with GDPR, CCPA and PECR. -->
     <script defer data-site="YOUR_DOMAIN_HERE" src="https://api.nepcha.com/js/nepcha-analytics.js"></script>
 
-
+    <script src="/admin/assets/js/sweetalert.js"></script>
 </head>
 
 
